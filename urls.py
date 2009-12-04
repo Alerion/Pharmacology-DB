@@ -7,6 +7,6 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     (r'^admin/', include(admin.site.urls)),
-    (r'^edit/', include('app.editor.urls',  namespace='editor')),
+    (r'^', include('app.main.urls',  namespace='main')),
     (r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT}),
 )

@@ -1,0 +1,37 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Title{% endblock %}
+
+{% block content %}
+<script type="text/javascript">
+Ext.onReady(function(){
+	var vp = new Ext.Viewport({
+		title: Ext.fly('page-title').innerHTML,
+		layout: 'border',
+		renderTo: Ext.getBody(),
+		items: [{
+		    xtype: 'treepanel',
+		    title: 'Drugs',
+		    frame: true,
+		    border: false,
+		    region: 'west',
+		    rootVisible: false,
+		    lines: false,
+		    root: {
+		        nodeType: 'async',
+		        text: 'root',
+		        id: 'root',
+		        expanded: true
+	        }		    
+		},{
+			xtype: 'panel',
+			title: 'Title',
+            frame: true,
+            border: false,
+            region: 'center',
+            html: 'Hello, world!'			
+		}]
+	});
+});
+</script>
+{% endblock %}
