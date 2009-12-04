@@ -14,10 +14,10 @@ MANAGERS = ADMINS
 
 DEFAULT_CHARSET = 'UTF-8'
 
-DATABASE_ENGINE = 'mysql'           # 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-DATABASE_NAME = 'mydatabase'        # Or path to database file if using sqlite3.
-DATABASE_USER = 'root'              # Not used with sqlite3.
-DATABASE_PASSWORD = 'password'      # Not used with sqlite3.
+DATABASE_ENGINE = 'sqlite3'#'mysql'           # 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
+DATABASE_NAME = os.path.join(PROJECT_ROOT, 'database.db')       # Or path to database file if using sqlite3.
+DATABASE_USER = ''              # Not used with sqlite3.
+DATABASE_PASSWORD = ''      # Not used with sqlite3.
 DATABASE_HOST = ''             # Set to empty string for localhost. Not used with sqlite3.
 DATABASE_PORT = ''             # Set to empty string for default. Not used with sqlite3.
 
@@ -29,7 +29,7 @@ SITE_ID = 1
 
 USE_I18N = True
 
-MEDIA_ROOT = os.path.join(os.path.dirname(__file__), 'static/')
+MEDIA_ROOT = os.path.join(PROJECT_ROOT, 'static/')
 
 MEDIA_URL = '/static/'
 
@@ -66,6 +66,7 @@ INSTALLED_APPS = (
     'django.contrib.contenttypes',
     'django.contrib.flatpages',
     'django.contrib.sessions',
+    'app.main'
 )
 
 try:
