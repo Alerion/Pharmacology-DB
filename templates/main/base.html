@@ -5,16 +5,20 @@
 {% block media %}
 <link rel="stylesheet" type="text/css" href="{% media 'extjs/resources/css/ext-all.css' %}" />
 <link rel="stylesheet" type="text/css" href="{% media 'extjs/resources/css/custom.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% media 'css/base.css' %}" />
 <script type="text/javascript" src="{% media 'js/jquery-1.3.1.js' %}"></script>
 <script type="text/javascript" src="{% media 'extjs/adapter/jquery/ext-jquery-adapter-debug.js' %}"></script>
 <script type="text/javascript" src="{% media 'extjs/ext-all-debug.js' %}"></script>
 <script type="text/javascript" src="{% media 'js/Ext.ux.msg.js' %}"></script>
 <script type="text/javascript" src="{% url main:urls %}"></script>
+<script type="text/javascript" src="{% url main:drug_edit_cm %}"></script>
+<script type="text/javascript" src="{% media 'js/Ext.ux.DrugTree.js' %}"></script>
+<script type="text/javascript" src="{% media 'js/Ext.ux.DrugEdit.js' %}"></script>    
 <script type="text/javascript">
     Ext.BLANK_IMAGE_URL = '{% media "extjs/resources/images/default/s.gif" %}';
     Ext.QuickTips.init();
     Ext.Ajax.on('requestexception', function(){
         Ext.ux.msg('Failure', 'Ajax communication failed', Ext.Msg.ERROR);
     }, this);    
-</script>    	        
+</script>
 {% endblock %}

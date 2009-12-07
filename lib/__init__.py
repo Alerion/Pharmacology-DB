@@ -22,6 +22,13 @@ def render_to(template, processor=None):
         return wrapper
     return renderer
 
+def ajax_processor(func):
+    def wrapper(request, *args, **kwargs):
+        result = func(request, *args, **kwargs)
+        json = simplejson.dumps(result, cls=DjangoJSONEncoder)
+        return HttpResponse(json, mimetype="application/json")
+    return wrapper
+
 class LazyEncoder(DjangoJSONEncoder):
     def default(self, obj):
         if isinstance(obj, Promise):

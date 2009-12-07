@@ -10,27 +10,26 @@ Ext.onReady(function(){
 		layout: 'border',
 		renderTo: Ext.getBody(),
 		items: [{
-		    xtype: 'treepanel',
-		    title: 'Drugs',
-		    frame: true,
-		    border: false,
-		    region: 'west',
-		    rootVisible: false,
-		    lines: false,
-            lines: false,  		    
-		    root: {
-		        nodeType: 'async',
-		        text: 'root',
-		        id: 'root',
-		        expanded: true
-	        }		    
+		    xtype: 'ext:ux:drug-tree'
 		},{
 			xtype: 'panel',
 			title: 'Title',
-            frame: true,
+            frame: false,
             border: false,
             region: 'center',
-            html: 'Hello, world!'          			
+            layout: 'vbox',
+            items: [{
+                id: 'drug-info-panel',
+                frame: true,
+                border: false,
+                html: 'Выберите препарат',
+                flex: 0.2,
+                xtype: 'panel',
+                width: '100%',
+                url: URLS.drug_info
+            },{
+            	xtype: 'ext:ux:drug-edit'
+            }]         			
 		}]
 	});
 });
