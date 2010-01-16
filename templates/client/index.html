@@ -1,0 +1,21 @@
+{% extends 'client/base.html' %}
+
+{% block title %}Title{% endblock %}
+
+{% block content %}
+<script type="text/javascript">
+var CRITERIONS = {{ criterions|safe }};
+Ext.onReady(function(){
+	var vp = new Ext.Viewport({
+		title: Ext.fly('page-title').innerHTML,
+		layout: 'border',
+		renderTo: Ext.getBody(),
+		items: [{
+		    xtype: 'ext:ux:illness-tree'
+		},{
+			xtype: 'ext:ux:search-panel'   			
+		}]
+	});
+});
+</script>
+{% endblock %}

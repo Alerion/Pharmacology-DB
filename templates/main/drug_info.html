@@ -2,4 +2,5 @@
     <tr><th>Название</th><td>{{ item.name }}</td></tr>
     <tr><th>Категория</th><td>{{ item.category.name }}</td></tr>
     <tr><th>На латыне</th><td>{{ item.latin_name }}</td></tr>
+	<tr><th>Показания</th><td>{{ item.illnesses.all|join:', ' }}</td></tr>
 </table>

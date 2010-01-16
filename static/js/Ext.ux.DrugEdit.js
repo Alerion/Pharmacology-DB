@@ -29,7 +29,18 @@ Ext.ux.DrugEdit = Ext.extend(Ext.grid.EditorGridPanel, {
     	url: URLS.load_drug_grid,
     	fields: DrugEdit.fields,
     	baseParams: {'pks': DrugEdit.load_params},
-    	root: 'items'
+    	root: 'items',
+    	cur_index: null,
+    	listeners: {
+    		load: function(store, records, options){
+				var pk = options.params.pk;
+				cm = Ext.getCmp('drug-edit-grid').getColumnModel();
+    			store.cur_index && cm.setEditable(store.cur_index, true);
+    			var index = cm.findColumnIndex('dr_'+pk);
+    			cm.setEditable(index, false);
+    			store.cur_index = index;
+    		}//load
+    	}//listeners
     }),
     cm: new Ext.grid.ColumnModel({
     	columns: DrugEdit.columns,

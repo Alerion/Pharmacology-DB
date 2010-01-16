@@ -68,3 +68,7 @@ dl.available {
 dl.posible {
 	color: orange;
 }
+
+.selected .x-tree-node-anchor span {
+	color: #0000ff;	
+}

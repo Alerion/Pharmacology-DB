@@ -1,12 +1,29 @@
 from lib import render_to, ajax_processor
 from django.core.urlresolvers import reverse
-from models import ATCCategory, Drug, CompareValue, CRITERION_CHOICE
+from models import FarmAction, Drug, CompareValue, CRITERION_CHOICE
+from django.http import HttpResponse
+from criterion import criterion
+from lib.mai import Matrix, MAI
 
 @render_to('main/index.html')
 def index(request):
     return {
         'criterions': CRITERION_CHOICE
     }
+
+def select(request):
+    qs = Drug.objects.all()
+    mai = MAI(criterion.get_matrix())
+    pks = [item.pk for item in qs]
+    for cr in criterion.iter():
+        alternative = Matrix()
+        for drug in qs:
+            alternative.append(CompareValue.matrix_row(cr, drug.pk, pks))
+        mai.add_alter(alternative)
+    result = [item for item in mai()]
+    for i in range(len(result)):
+        print '%s - %s' % (qs[i].pk, result[i])    
+    return HttpResponse('Text!')
 
 @render_to('main/drug_info.html')
 def drug_info(request):
@@ -20,7 +37,7 @@ def save_drug_value(request):
     obj = CompareValue.set_value(criterion=int(post['criterion']), 
                               left=int(post['left']), 
                               top=int(post['top']),
-                              value=int(post['value']))
+                              value=post['value'])
     return {}
 
 @render_to('main/urls.js')
@@ -42,7 +59,7 @@ def drug_edit_cm(request):
 
 @ajax_processor
 def drugs_tree(request):
-    items = ATCCategory.objects.all()
+    items = FarmAction.objects.all()
     return [item.tree_node() for item in items]
 
 @ajax_processor

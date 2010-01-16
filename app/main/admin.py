@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from django.contrib import admin
-from models import Drug, ATCCategory
+from models import Drug, FarmAction, Illness
 from django.http import HttpResponse
 
 class DrugAdmin(admin.ModelAdmin):
@@ -19,4 +19,5 @@ class DrugAdmin(admin.ModelAdmin):
         return my_urls + urls
 
 admin.site.register(Drug, DrugAdmin)
-admin.site.register(ATCCategory)
+admin.site.register(FarmAction)
+admin.site.register(Illness)

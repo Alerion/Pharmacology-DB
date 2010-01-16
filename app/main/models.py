@@ -1,12 +1,22 @@
 # -*- coding: utf-8 -*-
 from django.db import models
+from criterion import CRITERION_CHOICE
 
-CRITERION_CHOICE = (
-    (1, u'Эфективность'),
-    (2, u'Цена'),
-    (3, u'Доступность'),
-    (4, u'Фармдействие')
-)
+class Illness(models.Model):
+    name = models.CharField(u'Название', max_length=255)
+    
+    def __unicode__(self):
+        return self.name
+    
+    def tree_node(self):
+        return {
+            'id': 'ill_%s' % self.pk,
+            'text': self.name,
+            'leaf': True,
+            'cls': 'file',
+            'pk': self.pk,
+            'checked': False
+        }    
 
 class CompareValue(models.Model):
     value = models.FloatField(u'Значение')
@@ -20,7 +30,7 @@ class CompareValue(models.Model):
     @classmethod
     def create(cls, criterion, top, left, value):
         try:
-            obj = CompareValue.objects.filter(criterion=criterion).filter(left__pk=left).filter(top__pk=top).get()
+            obj = cls.objects.filter(criterion=criterion).filter(left__pk=left).filter(top__pk=top).get()
         except cls.DoesNotExist:
             obj = cls(criterion=criterion)
         obj.left = Drug.objects.get(pk=left)
@@ -33,6 +43,7 @@ class CompareValue(models.Model):
     
     @classmethod
     def set_value(cls, criterion, top, left, value):
+        value = cls.view_to_db(value)
         obj = cls.create(criterion, top, left, value)
         obj.save()
         if not obj.top == obj.left:
@@ -41,24 +52,62 @@ class CompareValue(models.Model):
     
     @classmethod
     def grit_row(cls, criterion, pk, pks):
+        drugs = Drug.objects.filter(pk__in=pks)
         items = cls.objects.filter(criterion=criterion[0]).filter(left=pk).filter(top__in=pks)
         obj = {
             'criterion': criterion[1],
             'criterion_pk': criterion[0]     
         }
         for item in items:
-            obj[item.top.store_column] = int(item.value)
+            obj[item.top.store_column] = cls.db_to_view(item.value)
+        for item in drugs:
+            if not item.store_column in obj:
+                obj[item.store_column] = '1' 
         return obj
+    
+    @classmethod
+    def matrix_row(cls, criterion, pk, pks):  
+        items = cls.objects.filter(criterion=criterion[0]).filter(left=pk).filter(top__in=pks)
+        values = {}
+        for item in items:
+            values[item.top.pk] = cls.db_to_python(item.value)
+        output = []
+        for item in pks:
+            if not item in values:
+                values[item] = 1 
+            output.append(values[item])        
+        return output
+    
+    @classmethod 
+    def db_to_python(cls, value):
+        value = float(value)
+        if value < 1:
+            value = 1 / abs(value)
+        return value
+    
+    @classmethod
+    def db_to_view(cls, value):
+        if value >= 0:
+            return value
+        else:
+            return '1/%i' % abs(value)
+    
+    @classmethod
+    def view_to_db(cls, value):
+        try:
+            return int(value)
+        except ValueError:
+            return -int(value.split('/')[1])
         
-
 class Drug(models.Model):
     name = models.CharField(u'Название', max_length=255)
     latin_name = models.CharField(u'Латинское название', max_length=255)
-    category = models.ForeignKey('ATCCategory', verbose_name=u'Категория')
+    category = models.ForeignKey('FarmAction', verbose_name=u'Категория')
     compaire = models.ManyToManyField('self', symmetrical=False, through=CompareValue)
+    illnesses = models.ManyToManyField(Illness, verbose_name=u'Показания')
 
     def __unicode__(self):
-        return self.name
+        return '%s %s' % (self.pk, self.name)
     
     def tree_node(self):
         return {
@@ -73,17 +122,16 @@ class Drug(models.Model):
     def store_column(self):
         return 'dr_%s' % self.pk
     
-class ATCCategory(models.Model):
-    code = models.CharField(u'Код', max_length=100)
+class FarmAction(models.Model):
     name = models.CharField(u'Название', max_length=255)
 
     def __unicode__(self):
-        return self.code
+        return self.name
     
     def tree_node(self):
         return {
             'id': 'c_%s' % self.pk,
-            'text': '%s %s' % (self.code, self.name),
+            'text': self.name,
             'cls': 'folder',
             'children': [item.tree_node() for item in self.drug_set.all()],
             'expanded': True            

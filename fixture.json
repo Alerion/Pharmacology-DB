@@ -1,0 +1,847 @@
+[
+  {
+    "pk": 11,
+    "model": "admin.logentry",
+    "fields": {
+      "action_flag": 2,
+      "action_time": "2010-01-08 16:08:05",
+      "object_repr": "\u0410\u041c\u0418\u0414\u0410\u0420\u041e\u041d",
+      "object_id": "1",
+      "change_message": "\u0418\u0437\u043c\u0435\u043d\u0451\u043d illnesses.",
+      "user": 1,
+      "content_type": 10
+    }
+  },
+  {
+    "pk": 10,
+    "model": "admin.logentry",
+    "fields": {
+      "action_flag": 2,
+      "action_time": "2010-01-08 16:07:51",
+      "object_repr": "\u0410\u0420\u0418\u0422\u041c\u0418\u041b",
+      "object_id": "2",
+      "change_message": "\u0418\u0437\u043c\u0435\u043d\u0451\u043d illnesses.",
+      "user": 1,
+      "content_type": 10
+    }
+  },
+  {
+    "pk": 9,
+    "model": "admin.logentry",
+    "fields": {
+      "action_flag": 2,
+      "action_time": "2010-01-08 16:07:39",
+      "object_repr": "\u0421\u0418\u041c\u0414\u0410\u041a\u0421",
+      "object_id": "3",
+      "change_message": "\u041d\u0438 \u043e\u0434\u043d\u043e \u043f\u043e\u043b\u0435 \u043d\u0435 \u0438\u0437\u043c\u0435\u043d\u0435\u043d\u043e.",
+      "user": 1,
+      "content_type": 10
+    }
+  },
+  {
+    "pk": 8,
+    "model": "admin.logentry",
+    "fields": {
+      "action_flag": 2,
+      "action_time": "2010-01-08 16:07:38",
+      "object_repr": "\u0421\u0418\u041c\u0414\u0410\u041a\u0421",
+      "object_id": "3",
+      "change_message": "\u0418\u0437\u043c\u0435\u043d\u0451\u043d illnesses.",
+      "user": 1,
+      "content_type": 10
+    }
+  },
+  {
+    "pk": 7,
+    "model": "admin.logentry",
+    "fields": {
+      "action_flag": 1,
+      "action_time": "2010-01-08 15:51:55",
+      "object_repr": "\u041d\u0430\u0440\u0443\u0448\u0435\u043d\u0438\u0435 \u0440\u0438\u0442\u043c\u0430 \u0441\u0435\u0440\u0434\u0446\u0430",
+      "object_id": "3",
+      "change_message": "",
+      "user": 1,
+      "content_type": 12
+    }
+  },
+  {
+    "pk": 6,
+    "model": "admin.logentry",
+    "fields": {
+      "action_flag": 1,
+      "action_time": "2010-01-08 15:51:40",
+      "object_repr": "\u0416\u0435\u043b\u0443\u0434\u043e\u0447\u043a\u043e\u0432\u0430\u044f \u0442\u0430\u0445\u0438\u043a\u0430\u0440\u0434\u0438\u044f",
+      "object_id": "2",
+      "change_message": "",
+      "user": 1,
+      "content_type": 12
+    }
+  },
+  {
+    "pk": 5,
+    "model": "admin.logentry",
+    "fields": {
+      "action_flag": 1,
+      "action_time": "2010-01-08 15:50:08",
+      "object_repr": "\u0413\u043e\u043b\u043e\u0432\u043d\u0430\u044f \u0431\u043e\u043b\u044c",
+      "object_id": "1",
+      "change_message": "",
+      "user": 1,
+      "content_type": 12
+    }
+  },
+  {
+    "pk": 4,
+    "model": "admin.logentry",
+    "fields": {
+      "action_flag": 1,
+      "action_time": "2009-12-04 16:36:48",
+      "object_repr": "\u0421\u0418\u041c\u0414\u0410\u041a\u0421",
+      "object_id": "3",
+      "change_message": "",
+      "user": 1,
+      "content_type": 10
+    }
+  },
+  {
+    "pk": 3,
+    "model": "admin.logentry",
+    "fields": {
+      "action_flag": 1,
+      "action_time": "2009-12-04 16:36:16",
+      "object_repr": "\u0410\u0420\u0418\u0422\u041c\u0418\u041b",
+      "object_id": "2",
+      "change_message": "",
+      "user": 1,
+      "content_type": 10
+    }
+  },
+  {
+    "pk": 2,
+    "model": "admin.logentry",
+    "fields": {
+      "action_flag": 1,
+      "action_time": "2009-12-04 16:35:33",
+      "object_repr": "\u0410\u041c\u0418\u0414\u0410\u0420\u041e\u041d",
+      "object_id": "1",
+      "change_message": "",
+      "user": 1,
+      "content_type": 10
+    }
+  },
+  {
+    "pk": 1,
+    "model": "admin.logentry",
+    "fields": {
+      "action_flag": 1,
+      "action_time": "2009-12-04 16:34:54",
+      "object_repr": "C01",
+      "object_id": "1",
+      "change_message": "",
+      "user": 1,
+      "content_type": 11
+    }
+  },
+  {
+    "pk": 1,
+    "model": "auth.permission",
+    "fields": {
+      "codename": "add_logentry",
+      "name": "Can add log entry",
+      "content_type": 1
+    }
+  },
+  {
+    "pk": 2,
+    "model": "auth.permission",
+    "fields": {
+      "codename": "change_logentry",
+      "name": "Can change log entry",
+      "content_type": 1
+    }
+  },
+  {
+    "pk": 3,
+    "model": "auth.permission",
+    "fields": {
+      "codename": "delete_logentry",
+      "name": "Can delete log entry",
+      "content_type": 1
+    }
+  },
+  {
+    "pk": 7,
+    "model": "auth.permission",
+    "fields": {
+      "codename": "add_group",
+      "name": "Can add group",
+      "content_type": 3
+    }
+  },
+  {
+    "pk": 13,
+    "model": "auth.permission",
+    "fields": {
+      "codename": "add_message",
+      "name": "Can add message",
+      "content_type": 5
+    }
+  },
+  {
+    "pk": 4,
+    "model": "auth.permission",
+    "fields": {
+      "codename": "add_permission",
+      "name": "Can add permission",
+      "content_type": 2
+    }
+  },
+  {
+    "pk": 10,
+    "model": "auth.permission",
+    "fields": {
+      "codename": "add_user",
+      "name": "Can add user",
+      "content_type": 4
+    }
+  },
+  {
+    "pk": 8,
+    "model": "auth.permission",
+    "fields": {
+      "codename": "change_group",
+      "name": "Can change group",
+      "content_type": 3
+    }
+  },
+  {
+    "pk": 14,
+    "model": "auth.permission",
+    "fields": {
+      "codename": "change_message",
+      "name": "Can change message",
+      "content_type": 5
+    }
+  },
+  {
+    "pk": 5,
+    "model": "auth.permission",
+    "fields": {
+      "codename": "change_permission",
+      "name": "Can change permission",
+      "content_type": 2
+    }
+  },
+  {
+    "pk": 11,
+    "model": "auth.permission",
+    "fields": {
+      "codename": "change_user",
+      "name": "Can change user",
+      "content_type": 4
+    }
+  },
+  {
+    "pk": 9,
+    "model": "auth.permission",
+    "fields": {
+      "codename": "delete_group",
+      "name": "Can delete group",
+      "content_type": 3
+    }
+  },
+  {
+    "pk": 15,
+    "model": "auth.permission",
+    "fields": {
+      "codename": "delete_message",
+      "name": "Can delete message",
+      "content_type": 5
+    }
+  },
+  {
+    "pk": 6,
+    "model": "auth.permission",
+    "fields": {
+      "codename": "delete_permission",
+      "name": "Can delete permission",
+      "content_type": 2
+    }
+  },
+  {
+    "pk": 12,
+    "model": "auth.permission",
+    "fields": {
+      "codename": "delete_user",
+      "name": "Can delete user",
+      "content_type": 4
+    }
+  },
+  {
+    "pk": 16,
+    "model": "auth.permission",
+    "fields": {
+      "codename": "add_contenttype",
+      "name": "Can add content type",
+      "content_type": 6
+    }
+  },
+  {
+    "pk": 17,
+    "model": "auth.permission",
+    "fields": {
+      "codename": "change_contenttype",
+      "name": "Can change content type",
+      "content_type": 6
+    }
+  },
+  {
+    "pk": 18,
+    "model": "auth.permission",
+    "fields": {
+      "codename": "delete_contenttype",
+      "name": "Can delete content type",
+      "content_type": 6
+    }
+  },
+  {
+    "pk": 19,
+    "model": "auth.permission",
+    "fields": {
+      "codename": "add_flatpage",
+      "name": "Can add flat page",
+      "content_type": 7
+    }
+  },
+  {
+    "pk": 20,
+    "model": "auth.permission",
+    "fields": {
+      "codename": "change_flatpage",
+      "name": "Can change flat page",
+      "content_type": 7
+    }
+  },
+  {
+    "pk": 21,
+    "model": "auth.permission",
+    "fields": {
+      "codename": "delete_flatpage",
+      "name": "Can delete flat page",
+      "content_type": 7
+    }
+  },
+  {
+    "pk": 31,
+    "model": "auth.permission",
+    "fields": {
+      "codename": "add_atccategory",
+      "name": "Can add atc category",
+      "content_type": 11
+    }
+  },
+  {
+    "pk": 25,
+    "model": "auth.permission",
+    "fields": {
+      "codename": "add_comparevalue",
+      "name": "Can add compare value",
+      "content_type": 9
+    }
+  },
+  {
+    "pk": 28,
+    "model": "auth.permission",
+    "fields": {
+      "codename": "add_drug",
+      "name": "Can add drug",
+      "content_type": 10
+    }
+  },
+  {
+    "pk": 34,
+    "model": "auth.permission",
+    "fields": {
+      "codename": "add_illness",
+      "name": "Can add illness",
+      "content_type": 12
+    }
+  },
+  {
+    "pk": 32,
+    "model": "auth.permission",
+    "fields": {
+      "codename": "change_atccategory",
+      "name": "Can change atc category",
+      "content_type": 11
+    }
+  },
+  {
+    "pk": 26,
+    "model": "auth.permission",
+    "fields": {
+      "codename": "change_comparevalue",
+      "name": "Can change compare value",
+      "content_type": 9
+    }
+  },
+  {
+    "pk": 29,
+    "model": "auth.permission",
+    "fields": {
+      "codename": "change_drug",
+      "name": "Can change drug",
+      "content_type": 10
+    }
+  },
+  {
+    "pk": 35,
+    "model": "auth.permission",
+    "fields": {
+      "codename": "change_illness",
+      "name": "Can change illness",
+      "content_type": 12
+    }
+  },
+  {
+    "pk": 33,
+    "model": "auth.permission",
+    "fields": {
+      "codename": "delete_atccategory",
+      "name": "Can delete atc category",
+      "content_type": 11
+    }
+  },
+  {
+    "pk": 27,
+    "model": "auth.permission",
+    "fields": {
+      "codename": "delete_comparevalue",
+      "name": "Can delete compare value",
+      "content_type": 9
+    }
+  },
+  {
+    "pk": 30,
+    "model": "auth.permission",
+    "fields": {
+      "codename": "delete_drug",
+      "name": "Can delete drug",
+      "content_type": 10
+    }
+  },
+  {
+    "pk": 36,
+    "model": "auth.permission",
+    "fields": {
+      "codename": "delete_illness",
+      "name": "Can delete illness",
+      "content_type": 12
+    }
+  },
+  {
+    "pk": 22,
+    "model": "auth.permission",
+    "fields": {
+      "codename": "add_session",
+      "name": "Can add session",
+      "content_type": 8
+    }
+  },
+  {
+    "pk": 23,
+    "model": "auth.permission",
+    "fields": {
+      "codename": "change_session",
+      "name": "Can change session",
+      "content_type": 8
+    }
+  },
+  {
+    "pk": 24,
+    "model": "auth.permission",
+    "fields": {
+      "codename": "delete_session",
+      "name": "Can delete session",
+      "content_type": 8
+    }
+  },
+  {
+    "pk": 1,
+    "model": "auth.user",
+    "fields": {
+      "username": "admin",
+      "first_name": "",
+      "last_name": "",
+      "is_active": true,
+      "is_superuser": true,
+      "is_staff": true,
+      "last_login": "2010-01-08 15:49:44",
+      "groups": [],
+      "user_permissions": [],
+      "password": "sha1$71782$e87bc506175dc69dfb72538b55947afd4bc32bc8",
+      "email": "admin@admin.ua",
+      "date_joined": "2009-12-04 16:30:56"
+    }
+  },
+  {
+    "pk": "22423f1cfd5c6c7cac3b086348c22e75",
+    "model": "sessions.session",
+    "fields": {
+      "expire_date": "2009-12-18 16:31:27",
+      "session_data": "gAJ9cQEoVRJfYXV0aF91c2VyX2JhY2tlbmRxAlUpZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5k\ncy5Nb2RlbEJhY2tlbmRxA1UNX2F1dGhfdXNlcl9pZHEESwF1LjVmYzJiZDdmOWFjMWQ5MjcwODg5\nNjRiMjdjNDEyMTk0\n"
+    }
+  },
+  {
+    "pk": "48481558ac210db671717b83b5b1fb96",
+    "model": "sessions.session",
+    "fields": {
+      "expire_date": "2009-12-26 21:38:25",
+      "session_data": "gAJ9cQEuM2Q0NTY5ZTViMDllZjQ5MTI2Zjk4ZmE5NmRkZjEzNWU=\n"
+    }
+  },
+  {
+    "pk": "f7054eed55934e5c3329dbd43c5513af",
+    "model": "sessions.session",
+    "fields": {
+      "expire_date": "2010-01-05 13:05:37",
+      "session_data": "gAJ9cQEuM2Q0NTY5ZTViMDllZjQ5MTI2Zjk4ZmE5NmRkZjEzNWU=\n"
+    }
+  },
+  {
+    "pk": "b0bf600dc8c9d2a0159313f27477f22f",
+    "model": "sessions.session",
+    "fields": {
+      "expire_date": "2010-01-22 15:49:44",
+      "session_data": "gAJ9cQEoVRJfYXV0aF91c2VyX2JhY2tlbmRxAlUpZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5k\ncy5Nb2RlbEJhY2tlbmRxA1UNX2F1dGhfdXNlcl9pZHEESwF1LjVmYzJiZDdmOWFjMWQ5MjcwODg5\nNjRiMjdjNDEyMTk0\n"
+    }
+  },
+  {
+    "pk": 1,
+    "model": "main.illness",
+    "fields": {
+      "name": "\u0413\u043e\u043b\u043e\u0432\u043d\u0430\u044f \u0431\u043e\u043b\u044c"
+    }
+  },
+  {
+    "pk": 2,
+    "model": "main.illness",
+    "fields": {
+      "name": "\u0416\u0435\u043b\u0443\u0434\u043e\u0447\u043a\u043e\u0432\u0430\u044f \u0442\u0430\u0445\u0438\u043a\u0430\u0440\u0434\u0438\u044f"
+    }
+  },
+  {
+    "pk": 3,
+    "model": "main.illness",
+    "fields": {
+      "name": "\u041d\u0430\u0440\u0443\u0448\u0435\u043d\u0438\u0435 \u0440\u0438\u0442\u043c\u0430 \u0441\u0435\u0440\u0434\u0446\u0430"
+    }
+  },
+  {
+    "pk": 1,
+    "model": "main.comparevalue",
+    "fields": {
+      "top": 1,
+      "criterion": 1,
+      "value": 9.0,
+      "left": 3
+    }
+  },
+  {
+    "pk": 2,
+    "model": "main.comparevalue",
+    "fields": {
+      "top": 3,
+      "criterion": 1,
+      "value": -9.0,
+      "left": 1
+    }
+  },
+  {
+    "pk": 3,
+    "model": "main.comparevalue",
+    "fields": {
+      "top": 1,
+      "criterion": 1,
+      "value": 1.0,
+      "left": 1
+    }
+  },
+  {
+    "pk": 4,
+    "model": "main.comparevalue",
+    "fields": {
+      "top": 2,
+      "criterion": 2,
+      "value": 1.0,
+      "left": 2
+    }
+  },
+  {
+    "pk": 5,
+    "model": "main.comparevalue",
+    "fields": {
+      "top": 3,
+      "criterion": 2,
+      "value": 9.0,
+      "left": 2
+    }
+  },
+  {
+    "pk": 6,
+    "model": "main.comparevalue",
+    "fields": {
+      "top": 2,
+      "criterion": 2,
+      "value": -9.0,
+      "left": 3
+    }
+  },
+  {
+    "pk": 7,
+    "model": "main.comparevalue",
+    "fields": {
+      "top": 2,
+      "criterion": 3,
+      "value": -9.0,
+      "left": 1
+    }
+  },
+  {
+    "pk": 8,
+    "model": "main.comparevalue",
+    "fields": {
+      "top": 1,
+      "criterion": 3,
+      "value": 9.0,
+      "left": 2
+    }
+  },
+  {
+    "pk": 9,
+    "model": "main.comparevalue",
+    "fields": {
+      "top": 2,
+      "criterion": 1,
+      "value": -9.0,
+      "left": 1
+    }
+  },
+  {
+    "pk": 10,
+    "model": "main.comparevalue",
+    "fields": {
+      "top": 1,
+      "criterion": 1,
+      "value": 9.0,
+      "left": 2
+    }
+  },
+  {
+    "pk": 11,
+    "model": "main.comparevalue",
+    "fields": {
+      "top": 2,
+      "criterion": 2,
+      "value": -7.0,
+      "left": 1
+    }
+  },
+  {
+    "pk": 12,
+    "model": "main.comparevalue",
+    "fields": {
+      "top": 1,
+      "criterion": 2,
+      "value": 7.0,
+      "left": 2
+    }
+  },
+  {
+    "pk": 13,
+    "model": "main.comparevalue",
+    "fields": {
+      "top": 3,
+      "criterion": 4,
+      "value": -9.0,
+      "left": 2
+    }
+  },
+  {
+    "pk": 14,
+    "model": "main.comparevalue",
+    "fields": {
+      "top": 2,
+      "criterion": 4,
+      "value": 9.0,
+      "left": 3
+    }
+  },
+  {
+    "pk": 15,
+    "model": "main.comparevalue",
+    "fields": {
+      "top": 2,
+      "criterion": 3,
+      "value": 9.0,
+      "left": 3
+    }
+  },
+  {
+    "pk": 16,
+    "model": "main.comparevalue",
+    "fields": {
+      "top": 3,
+      "criterion": 3,
+      "value": -9.0,
+      "left": 2
+    }
+  },
+  {
+    "pk": 17,
+    "model": "main.comparevalue",
+    "fields": {
+      "top": 1,
+      "criterion": 3,
+      "value": 9.0,
+      "left": 3
+    }
+  },
+  {
+    "pk": 18,
+    "model": "main.comparevalue",
+    "fields": {
+      "top": 3,
+      "criterion": 3,
+      "value": -9.0,
+      "left": 1
+    }
+  },
+  {
+    "pk": 19,
+    "model": "main.comparevalue",
+    "fields": {
+      "top": 1,
+      "criterion": 4,
+      "value": 9.0,
+      "left": 3
+    }
+  },
+  {
+    "pk": 20,
+    "model": "main.comparevalue",
+    "fields": {
+      "top": 3,
+      "criterion": 4,
+      "value": -9.0,
+      "left": 1
+    }
+  },
+  {
+    "pk": 21,
+    "model": "main.comparevalue",
+    "fields": {
+      "top": 1,
+      "criterion": 2,
+      "value": 9.0,
+      "left": 3
+    }
+  },
+  {
+    "pk": 22,
+    "model": "main.comparevalue",
+    "fields": {
+      "top": 3,
+      "criterion": 2,
+      "value": -9.0,
+      "left": 1
+    }
+  },
+  {
+    "pk": 23,
+    "model": "main.comparevalue",
+    "fields": {
+      "top": 2,
+      "criterion": 1,
+      "value": -9.0,
+      "left": 3
+    }
+  },
+  {
+    "pk": 24,
+    "model": "main.comparevalue",
+    "fields": {
+      "top": 3,
+      "criterion": 1,
+      "value": 9.0,
+      "left": 2
+    }
+  },
+  {
+    "pk": 25,
+    "model": "main.comparevalue",
+    "fields": {
+      "top": 2,
+      "criterion": 4,
+      "value": -9.0,
+      "left": 1
+    }
+  },
+  {
+    "pk": 26,
+    "model": "main.comparevalue",
+    "fields": {
+      "top": 1,
+      "criterion": 4,
+      "value": 9.0,
+      "left": 2
+    }
+  },
+  {
+    "pk": 1,
+    "model": "main.drug",
+    "fields": {
+      "category": 1,
+      "illnesses": [
+        1,
+        3
+      ],
+      "name": "\u0410\u041c\u0418\u0414\u0410\u0420\u041e\u041d",
+      "latin_name": "AMIODARONUM"
+    }
+  },
+  {
+    "pk": 2,
+    "model": "main.drug",
+    "fields": {
+      "category": 1,
+      "illnesses": [
+        2,
+        3
+      ],
+      "name": "\u0410\u0420\u0418\u0422\u041c\u0418\u041b",
+      "latin_name": "AMIODARONUM "
+    }
+  },
+  {
+    "pk": 3,
+    "model": "main.drug",
+    "fields": {
+      "category": 1,
+      "illnesses": [
+        1,
+        2
+      ],
+      "name": "\u0421\u0418\u041c\u0414\u0410\u041a\u0421",
+      "latin_name": "LEVOSIMENDANUM"
+    }
+  },
+  {
+    "pk": 1,
+    "model": "main.atccategory",
+    "fields": {
+      "code": "C01",
+      "name": "\u041a\u0430\u0440\u0434\u0438\u043e\u043b\u043e\u0433\u0438\u0447\u0435\u0441\u043a\u0438\u0435 \u043f\u0440\u0435\u043f\u0430\u0440\u0430\u0442\u044b"
+    }
+  }
+]
