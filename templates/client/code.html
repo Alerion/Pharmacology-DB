@@ -1,0 +1,41 @@
+{% load main_tags %}
+<style>
+.one {
+	color: #000040;
+}
+.smalle {
+	color: #ff8040;
+}
+.large {
+	color: #008000;
+}
+</style>
+<p>
+	<h3>Профиль: {{ critery.name }}</h3>	
+</p>
+<p>
+	<h3>Критерии выбора:</h3>
+	{% for item in criteries %}
+		f{{ forloop.counter }} - {{ item.1 }}<br/>
+	{% endfor %}
+</p>
+<p>
+	<h3>Альтернативы:</h3>
+	{% for item in result%}
+		X{{ forloop.counter }} - {{ item.item.name }}<br/>
+	{% endfor %}
+</p>
+<p>
+	<h3>Матрица парных сравнений для критериев:</h3>
+	<pre>{{ critery.view }}</pre>
+	λmax = {{ critery.matrix.gamma  }}<br/>
+	Вектор сосвенных значений: {{ critery.matrix.w|vector }}
+</p>
+{% for item in alters %}
+<p>
+	<h4>Матрица парных сравнений альтернатив для критерия: {{ item.cr.1 }}</h4>
+	λmax = {{ item.m.gamma }}<br/>
+	Вектор сосвенных значений: {{ item.m.w|vector }}	
+	{{ item.m|matrix }}
+</p>
+{% endfor %}

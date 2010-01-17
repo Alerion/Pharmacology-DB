@@ -36,7 +36,10 @@ class Matrix(list):
         for item in z:
             result.append(item/sumz)
         return result
-
+    
+    def w(self):
+        return self._w
+    
     @property
     def _y(self):
         result = []
@@ -48,19 +51,31 @@ class Matrix(list):
                 s = s + self[i][j] * w[j]
             result.append(s)
         return result
-
+    
+    def y(self):
+        return self._y
+    
     @property
     def _gamma(self):
         return sum(self._y)
-
+    
+    def gamma(self):
+        return self._gamma
+    
     @property
     def _IC(self):
         size = len(self)
         return (self._gamma - size)/(size - 1)
 
+    def IC(self):
+        return self._IC
+
     @property
     def _OC(self):
         return self._IC / self._CC[len(self)]
+    
+    def OC(self):
+        return self._OC
 
 class MAI(object):
     

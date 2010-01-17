@@ -11,7 +11,8 @@ class SearchForm(forms.Form):
     illness = forms.ModelMultipleChoiceField(queryset=Illness.objects.all(), required=False)
     
     def search(self):
-        cr_matrix = criterion.get_matrix(int(self.cleaned_data['type']))
+        self._alters = []
+        cr_matrix = criterion.get_matrix(int(self.cleaned_data['type']))      
         if not self.cleaned_data['farm']:
             return []
         qs = self._get_qs(self.cleaned_data['farm'], self.cleaned_data['strong'])
@@ -21,10 +22,24 @@ class SearchForm(forms.Form):
         mai = MAI(cr_matrix, qs)
         for cr in criterion.iter():
             alternative = Matrix()
+            print cr[1]
             for drug in qs:
+                print drug
+                print CompareValue.matrix_row(cr, drug.pk, pks)
                 alternative.append(CompareValue.matrix_row(cr, drug.pk, pks))
+            self._alters.append({
+                'cr': cr,
+                'm': alternative
+            })
+            
             mai.add_alter(alternative)
         return mai.sort() 
+    
+    def get_alters(self):
+        return self._alters
+    
+    def get_critery(self):
+        return criterion.get_critery(int(self.cleaned_data['type']))    
                 
     def _get_qs(self, farm, strong):
         illness = self.cleaned_data['illness']

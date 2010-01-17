@@ -60,6 +60,7 @@ Ext.ux.SearchPanel = Ext.extend(Ext.grid.GridPanel, {
 		this.farmTree = Ext.getCmp('farm-tree');
     },//initComponent
 	search: function(farm_pk){
+		this.farm_pk = farm_pk;
 		var illness = [];
 		Ext.each(Ext.getCmp('illness-tree').getChecked(), function(node){
 			this.push(node.attributes.pk);
@@ -74,7 +75,17 @@ Ext.ux.SearchPanel = Ext.extend(Ext.grid.GridPanel, {
 		});		
 	},
 	codeHandler: function(){
-		console.log('sadas')
+		var illness = [];
+		Ext.each(Ext.getCmp('illness-tree').getChecked(), function(node){
+			this.push(node.attributes.pk);
+		}, illness);		
+		var param = {
+			farm: this.farm_pk,
+			type: this.searchParam.type,
+			strong: this.searchParam.strong && 'checked' || '',
+			illness: illness
+		}
+		window.open(URLS.code+'?'+Ext.urlEncode(param), '_blank');
 	},
 	searchSuccess: function(response){
 		var result = Ext.util.JSON.decode(response.responseText);

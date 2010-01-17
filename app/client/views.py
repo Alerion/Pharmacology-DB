@@ -3,11 +3,24 @@ from django.core.urlresolvers import reverse
 from app.main.models import Illness, FarmAction
 from app.main.criterion import criterion
 from forms import SearchForm
+from lib.mai import Matrix
 
 @render_to('client/index.html')
 def index(request):
     return {
         'criterions': criterion.get_matrix_choices_json()
+    }
+
+@render_to('client/code.html')
+def code(request):
+    form = SearchForm(request.GET)
+    if form.is_valid():
+        result = form.search()         
+    return {
+        'criteries': criterion.CHOICE,
+        'result': result,
+        'critery': form.get_critery(),
+        'alters': form.get_alters()  
     }
 
 @ajax_processor

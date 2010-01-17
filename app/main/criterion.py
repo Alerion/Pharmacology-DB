@@ -4,11 +4,12 @@ from django.utils import simplejson as json
 
 class Critery(object):
     
-    def __init__(self, name, matrix, default=False, illness=[]):
+    def __init__(self, name, matrix, view, default=False, illness=[]):
         self.name = name
         self.default = default
         self.matrix = matrix
         self.illness = illness
+        self.view = view
     
 class Criterion(object):
     
@@ -26,31 +27,61 @@ class Criterion(object):
         m.append([1, 1, 1, 1])
         m.append([1, 1, 1, 1])
         m.append([1, 1, 1, 1])
-        self._items.append(Critery(u'Среднестатистический', m, True))
+        view = """
+        [1, 1, 1, 1]
+        [1, 1, 1, 1]
+        [1, 1, 1, 1]
+        [1, 1, 1, 1]        
+        """
+        self._items.append(Critery(u'Среднестатистический', m, view, True))
         m = Matrix()
         m.append([1,    1/2., 1,    1/3.])
         m.append([2,    1,    1/5., 1/3.])
         m.append([1,    1/5., 1,    1   ])
         m.append([1/3., 1/3., 1,    1   ])
-        self._items.append(Critery(u'Средний', m))
+        view = """
+        [1,    1/2, 1,    1/3]
+        [2,    1,    1/5, 1/3]
+        [1,    1/5, 1,    1  ]
+        [1/3, 1/3, 1,    1   ]        
+        """
+        self._items.append(Critery(u'Средний', m, view))
         m = Matrix()
         m.append([1,    3,    3, 1/2.])
         m.append([1/3., 1,    2, 1/2.])
         m.append([1/3., 1/2., 1, 1/4.])
-        m.append([2,    2,    4, 1   ])        
-        self._items.append(Critery(u'Женщины', m))
+        m.append([2,    2,    4, 1   ])
+        view = """
+        [1,   3,   3, 1/2]
+        [1/3, 1,   2, 1/2]
+        [1/3, 1/2, 1, 1/4]
+        [2,   2,   4, 1  ]        
+        """        
+        self._items.append(Critery(u'Женщины', m, view))
         m = Matrix()
         m.append([1,    5, 1,    1/3.])
         m.append([1/5., 1, 1/3., 1/7.])
         m.append([1,    3, 1,    1/3.])
         m.append([3,    7, 3,    1   ])
-        self._items.append(Critery(u'Беременные, дети', m, illness=[3]))
+        view = """
+        [1,   5, 1,   1/3]
+        [1/5, 1, 1/3, 1/7]
+        [1,   3, 1,   1/3]
+        [3,   7, 3,   1  ]        
+        """
+        self._items.append(Critery(u'Беременные, дети', m, view, illness=[3]))
         m = Matrix()
         m.append([1,    9, 5,    1])
         m.append([1/9., 1, 1/9., 1/9.])
         m.append([1/5., 9, 1,    1/5.])
         m.append([1,    9, 5,    1])
-        self._items.append(Critery(u'Богатые', m))
+        view = """
+        [1,   9, 5,   1  ]
+        [1/9, 1, 1/9, 1/9]
+        [1/5, 9, 1,   1/5]
+        [1,   9, 5,   1  ]       
+        """        
+        self._items.append(Critery(u'Богатые', m, view))
                         
     def get_matrix(self, type=None):
         if type:
@@ -59,6 +90,9 @@ class Criterion(object):
             for item in self._items:
                 if item.default:
                     return item.matrix
+    
+    def get_critery(self, type):
+        return self._items[type]
     
     def _get_info(self, m):
         w = m._w
