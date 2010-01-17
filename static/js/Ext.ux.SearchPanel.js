@@ -1,12 +1,13 @@
 Ext.ux.SearchPanel = Ext.extend(Ext.grid.GridPanel, {
-	title: 'Search',
+	title: 'Поиск',
 	region: 'center',
     frame: true,
     border: false,
 	layout: 'fit',
     enableColumnHide: false,
     enableColumnMove: false,
-    enableHdMenu: false,	
+    enableHdMenu: false,
+	id: 'search-panel',	
 	store: new Ext.data.JsonStore({
 		autoDestroy: true,
 		url: URLS.search,
@@ -16,8 +17,8 @@ Ext.ux.SearchPanel = Ext.extend(Ext.grid.GridPanel, {
 	}),
 	cm: new Ext.grid.ColumnModel({
     	columns: [
-            {header: 'Name', dataIndex: 'name'},
-            {header: 'Value', dataIndex: 'value'},
+            {header: 'Название', dataIndex: 'name'},
+            {header: 'Коэфициент', dataIndex: 'value'},
 		]
     }),
     initComponent: function(){
@@ -50,26 +51,30 @@ Ext.ux.SearchPanel = Ext.extend(Ext.grid.GridPanel, {
                 },
 				tooltip: default_type.info
             },'-',{
-				text: 'Search',
-				handler: this.searchHandler,
+				text: 'Расчеты',
+				handler: this.codeHandler,
 				scope: this
 			}
         ];
         Ext.ux.SearchPanel.superclass.initComponent.call(this);
-		this.illnessTree = Ext.getCmp('illness-tree');
+		this.farmTree = Ext.getCmp('farm-tree');
     },//initComponent
-	searchHandler: function(){
-		var illnesses = [];
-		Ext.each(this.illnessTree.getChecked(), function(item){
-			this.push(item.attributes.pk);
-		}, illnesses);
+	search: function(farm_pk){
+		var illness = [];
+		Ext.each(Ext.getCmp('illness-tree').getChecked(), function(node){
+			this.push(node.attributes.pk);
+		}, illness);
 		this.getStore().load({
 			params: {
 				type: this.searchParam.type,
 				strong: this.searchParam.strong && 'checked' || '',
-				illnesses: illnesses
+				farm: farm_pk,
+				illness: illness
 			}
-		});
+		});		
+	},
+	codeHandler: function(){
+		console.log('sadas')
 	},
 	searchSuccess: function(response){
 		var result = Ext.util.JSON.decode(response.responseText);
@@ -81,6 +86,9 @@ Ext.ux.SearchPanel = Ext.extend(Ext.grid.GridPanel, {
 			var menu = this.getTopToolbar().get(2);
 			menu.setText(item.text);
 			menu.setTooltip(item.info);
+			Ext.each(item.illness, function(pk){
+				this.getNodeById('ill_'+pk).getUI().toggleCheck(true);
+			}, Ext.getCmp('illness-tree'));
 		}
 	}	
 });

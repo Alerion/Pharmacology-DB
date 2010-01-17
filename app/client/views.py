@@ -1,6 +1,6 @@
 from lib import render_to, ajax_processor
 from django.core.urlresolvers import reverse
-from app.main.models import Illness
+from app.main.models import Illness, FarmAction
 from app.main.criterion import criterion
 from forms import SearchForm
 
@@ -11,11 +11,15 @@ def index(request):
     }
 
 @ajax_processor
+def farm_tree(request):
+    return [item.client_farm_tree_node() for item in FarmAction.objects.all()]     
+
+@ajax_processor
 def illness_tree(request):
     items = Illness.objects.all()
     return [item.tree_node() for item in items]
 
-@render_to('main/urls.js')
+@render_to('client/urls.js')
 def urls(request):
     from urls import urlpatterns
     output = []

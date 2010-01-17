@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from django.db import models
 from criterion import CRITERION_CHOICE
+from django.core.urlresolvers import reverse
 
 class Illness(models.Model):
     name = models.CharField(u'Название', max_length=255)
@@ -14,8 +15,8 @@ class Illness(models.Model):
             'text': self.name,
             'leaf': True,
             'cls': 'file',
-            'pk': self.pk,
-            'checked': False
+            'checked': False,
+            'pk': self.pk
         }    
 
 class CompareValue(models.Model):
@@ -128,6 +129,22 @@ class FarmAction(models.Model):
     def __unicode__(self):
         return self.name
     
+    def client_farm_tree_node(self):
+        return {
+            'id': 'f_%s' % self.pk,
+            'text': self.name,
+            'leaf': True,
+            'pk': self.pk         
+        } 
+            
+    def farm_tree_node(self):
+        return {
+            'id': 'f_%s' % self.pk,
+            'text': self.name,
+            'leaf': True,
+            'url': '%s?pk=%s' % (reverse('main:index'), self.pk)         
+        }  
+            
     def tree_node(self):
         return {
             'id': 'c_%s' % self.pk,

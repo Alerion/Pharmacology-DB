@@ -8,6 +8,7 @@ from lib.mai import Matrix, MAI
 @render_to('main/index.html')
 def index(request):
     return {
+        'group_pk': request.GET.get('pk', 1),
         'criterions': CRITERION_CHOICE
     }
 
@@ -48,19 +49,26 @@ def urls(request):
         output.append((item.name, reverse('main:'+item.name)))
     
     return {
+        'group_pk': request.GET.get('pk', 1),
         'urls': output 
     }
 
 @render_to('main/drug_edit_cm.js')
 def drug_edit_cm(request):
+    pk = request.GET.get('pk', 1)
     return {
-        'items': Drug.objects.all()
+        'items': Drug.objects.filter(category=pk)
     }
 
 @ajax_processor
+def farmaction_tree(request):
+    return [item.farm_tree_node() for item in FarmAction.objects.all()]    
+
+@ajax_processor
 def drugs_tree(request):
-    items = FarmAction.objects.all()
-    return [item.tree_node() for item in items]
+    pk = request.GET.get('pk', 1)
+    item = FarmAction.objects.get(pk=pk)
+    return [item.tree_node()]
 
 @ajax_processor
 def load_drug_grid(request):

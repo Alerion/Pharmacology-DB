@@ -10,4 +10,5 @@ urlpatterns = patterns('app.main.views',
     url(r'^drug_info/$', 'drug_info', name='drug_info'),
     url(r'^save_drug_value/$', 'save_drug_value', name='save_drug_value'),
     url(r'^select/$', 'select', name='select'),
+    url(r'^farmaction_tree/$', 'farmaction_tree', name='farmaction_tree'),
 )

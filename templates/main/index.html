@@ -10,7 +10,8 @@ Ext.onReady(function(){
 		layout: 'border',
 		renderTo: Ext.getBody(),
 		items: [{
-		    xtype: 'ext:ux:drug-tree'
+		    xtype: 'ext:ux:drug-tree',
+			pk: '{{ group_pk }}'
 		},{
 			xtype: 'panel',
 			title: 'Title',
@@ -29,7 +30,10 @@ Ext.onReady(function(){
                 url: URLS.drug_info
             },{
             	xtype: 'ext:ux:drug-edit'
-            }]         			
+            }]
+		},{
+			xtype: 'ext:ux:category-tree'
+			         			
 		}]
 	});
 });

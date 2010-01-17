@@ -1,13 +1,13 @@
-Ext.ux.IllnessTree = Ext.extend(Ext.tree.TreePanel, {
-    title: 'Противопоказания',
+Ext.ux.FarmTree = Ext.extend(Ext.tree.TreePanel, {
+    title: 'Фармэфект',
     frame: true,
     border: false,
-    region: 'east',
+    region: 'west',
     rootVisible: false,
     lines: false,
-    dataUrl: URLS.illness_tree,
+    dataUrl: URLS.farm_tree,
     width: '20%',
-	id: 'illness-tree',
+	id: 'farm-tree',
     root: {
         nodeType: 'async',
         text: 'root',
@@ -21,8 +21,12 @@ Ext.ux.IllnessTree = Ext.extend(Ext.tree.TreePanel, {
             }else{
                 node.getUI().removeClass('selected');
             }
-        }
+        },
+		'click': function(node){
+			var search_panel = Ext.getCmp('search-panel');
+			search_panel.search(node.attributes.pk);
+		}
 	}
 });
 
-Ext.reg('ext:ux:illness-tree', Ext.ux.IllnessTree);
+Ext.reg('ext:ux:farm-tree', Ext.ux.FarmTree);

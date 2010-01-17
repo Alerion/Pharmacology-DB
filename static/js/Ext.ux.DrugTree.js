@@ -15,16 +15,22 @@ Ext.ux.DrugTree = Ext.extend(Ext.tree.TreePanel, {
 	},
 	listeners: {
 		click: function(node){
-			var panel = this.getInfoPanel();//Ext.getCmp('drug-info-panel');
-			panel.load({
-				url: panel.url,
-				params: {'pk': node.attributes.pk}
-			});
-			var store = this.getDrugStore();
-			store.current_drug = node.attributes.pk;
-			store.load({
-				params: {'pk': node.attributes.pk}
-			});
+			if (node.leaf) {
+				var panel = this.getInfoPanel();//Ext.getCmp('drug-info-panel');
+				panel.load({
+					url: panel.url,
+					params: {
+						'pk': node.attributes.pk
+					}
+				});
+				var store = this.getDrugStore();
+				store.current_drug = node.attributes.pk;
+				store.load({
+					params: {
+						'pk': node.attributes.pk
+					}
+				});
+			}
 		}
 	},
 	getInfoPanel: function(){
